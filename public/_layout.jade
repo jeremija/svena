@@ -1,0 +1,33 @@
+- function getTitle() {
+-     var source =  current.source === 'index' ? 'home' : current.source;
+-     return source.replace('-', ' ').replace(/\w\S*/g, function(txt) {
+-         return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+-     }) + ' - Paintings by Svanimir Steiner';
+- }
+doctype
+html(prefix="og: http://ogp.me/ns#")
+  head
+    title #{getTitle()}
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    meta(property="og:title", content=(getTitle()))
+    meta(property="og:type", content="website")
+    meta(property="og:url", content=(url + '/' + current.path.join('/')))
+    meta(property="og:image", content=(current.path.indexOf('view') < 0 ? url + '/thumbs/bonaca.jpg' : url + '/thumbs/' + current.source + '.jpg'))
+    link(rel="stylesheet" href="/main.css")
+    script(type="text/javascript", src="//hammerjs.github.io/dist/hammer.min.js")
+    include ./_ga.jade
+  body
+    header
+      ul
+        li
+          a(href="/", class="#{current.source === 'index' ? 'active' : ''}", alt="Home")
+            span.icon-home
+        li
+          a(href="/gallery", class="#{current.source === 'gallery' || current.path.indexOf('view') >= 0 ? 'active' : ''}", alt="Gallery")
+            span.icon-images
+        li
+          a(href="/contact", class="#{current.source === 'contact' ? 'active' : ''}", alt="Contact")
+            span.icon-phone
+
+    != yield

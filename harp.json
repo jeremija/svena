@@ -1,0 +1,23 @@
+{
+    "globals": {
+        "url": "http://svanimir.steiner.website",
+        "ga": "UA-55255729-1",
+        "images": {
+            "bonaca": {"price": "300,00", "sold": true},
+            "dujmovic": {"price": "300,00", "sold": true},
+            "marih-beach": {"price": "300,00"},
+            "maslina": {"price": "300,00"},
+            "mulo": {"price": "300,00"},
+            "nevera2": {"price": "300,00"},
+            "nevera": {"price": "300,00"},
+            "obala": {"price": "300,00"},
+            "otok-iza": {"price": "300,00"},
+            "otok": {"price": "300,00"},
+            "seki": {"price": "300,00", "sold": "true"},
+            "sivadije-prenj": {"price": "300,00"},
+            "sv-nikola": {"price": "300,00"},
+            "ulica": {"price": "300,00"},
+            "vala": {"price": "300,00"}
+        }
+    }
+}

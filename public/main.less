@@ -1,0 +1,272 @@
+@import "./fonts.less";
+@import "./slider.less";
+
+@color: #444;
+@color-link: #849;
+@color-bg: #f4f4f7;
+@color-social: lighten(@color, 40%);
+
+@width-mid: 720px;
+
+body {
+  font-family: 'Josefin Slab', 'Times New Roman', serif;
+  text-align: center;
+  padding: 50px 20px 0;
+  background: @color-bg;
+  color: @color;
+  margin: 0;
+
+  @media(max-width: @width-mid) {
+    padding: 1em 0;
+  }
+}
+
+div.background {
+  position: fixed;
+  z-index: -1;
+  background: url("./assets/bg0.jpg");
+  -webkit-background-size:cover;
+  -moz-background-size:cover;
+  -o-background-size:cover;
+  background-size:cover;
+  background-position: center bottom;
+  left: 0;
+  top: 0;
+  right :0;
+  bottom: 0;
+}
+
+div.background2 {
+  background-image: url("./assets/bg.jpg");
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: "Allura", "Times New Roman", serif;
+  @media(max-width: @width-mid) {
+    margin: 0.2em 0;
+  }
+}
+
+h1 {
+  font-size: 65px;
+  line-height: 1.2em;
+  font-weight: 300;
+  font-style: italic;
+  // border-bottom: #CCC solid 1px;
+  padding: 20px 0;
+
+  .subtitle {
+    margin-top: 0.5em;
+    font-size: 0.5em;
+  }
+}
+
+h3 {
+  font-weight: 300;
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.transition(@type, @duration) {
+    -webkit-transition: @type @duration;
+    -moz-transition: @type @duration;
+    transition: @type @duration;
+}
+
+a {
+    color: @color;
+    text-decoration: none;
+    font-weight: 700;
+
+    .transition(color, 200ms);
+
+    &:visited {
+        color: @color;
+    }
+    &:hover {
+        color: lighten(@color, 10%);
+    }
+}
+
+a.send {
+  margin-top: 3em;
+  display: block;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+header {
+  ul {
+    padding: 0;
+    display: block;
+  }
+  li {
+    padding: 0;
+    display: inline-block;
+    margin: 0 0.5em 0 0.5em;
+    a {
+      span {
+        font-size: 3em;
+        vertical-align: middle;
+        padding: 16px;
+      }
+      &.active,
+      &.active:visited {
+        color: white;
+        span {
+          border-radius: 50%;
+          background-color: @color;
+          .transition(background-color, 200ms);
+        }
+      }
+      &.active:hover span {
+        background-color: lighten(@color, 10%);
+      }
+    }
+  }
+}
+
+.columns(@count, @gap) {
+  -webkit-column-count: @count;
+  -moz-column-count: @count;
+  column-count: @count;
+  -webkit-column-gap: @gap;
+  -moz-column-gap: @gap;
+  column-gap: @gap;
+}
+
+section {
+  @media(min-width: 1200px) {
+    width: 1100px;
+    margin: 0 auto;
+  }
+}
+
+section.gallery {
+
+  /* Prevent vertical gaps */
+  line-height: 3px;
+
+  .columns(3, 5px);
+  @media (max-width: @width-mid) {
+    .columns(2, 5px);
+  }
+
+  div.image {
+    position: relative;
+
+    img {
+      /* Just in case there are inline attributes */
+      width: 100%;
+      height: auto;
+      margin-bottom: 5px;
+    }
+
+    &:hover .overlay {
+      opacity: 1;
+    }
+
+    .overlay {
+      background-color: fade(@color, 50%);
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 5px;;
+      pointer-events: none;
+      opacity: 0;
+      .transition(opacity, 200ms);
+
+      div.data {
+        line-height: 1em;
+        position: absolute;
+        color: white;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        text-align: right;
+        padding: 1em 1em;
+
+        .name {
+          font-weight: 700;
+        }
+
+        .price.sold {
+          .amount {
+            text-decoration: line-through;
+          }
+        }
+      }
+    }
+
+    .overlay.sold {
+      background-color: fade(@color, 75%);
+      opacity: 1;
+    }
+  }
+
+}
+
+section.image {
+  div.data {
+    text-align: right;
+
+    .price.sold {
+      .amount {
+        text-decoration: line-through;
+      }
+    }
+  }
+}
+
+section.social {
+    margin-top: 2em;
+    margin-bottom: 2em;
+
+    @media(max-width: @width-mid) {
+      margin-bottom: 0.5em;
+    }
+
+    a,
+    a:visited {
+        color: @color-social;
+        font-size: 2em;
+        margin-left: 0.5em;
+        margin-right: 0.5em;
+    }
+
+    a:hover {
+        color: @color;
+    }
+}
+
+section.contact {
+  font-size: 1.4em;
+
+  h3 {
+    font-family: 'Josefin Slab';
+  }
+}
+
+.front section.social {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  a, a:visited {
+    color: white;
+    opacity: 0.7;
+  }
+  a:hover {
+    color: @color;
+  }
+}

@@ -1,0 +1,47 @@
+- function getImageName(name) {
+-     if (!name) return '';
+-     return name.replace('-', ' ');
+- }
+- var name = current.source.replace(/\..*$/g, '');
+- var data = images[name] || {};
+- function getAdjancentImages() {
+-   var images = public.thumbs._contents;
+-   index = public.thumbs._contents.indexOf(current.source + '.jpg');
+-   if (index < 0) return [];
+-   var left = index === 0 ? images.length - 1 : index - 1;
+-   var right = index === images.length - 1 ? 0 : index + 1;
+-   var left = images[left];
+-   var right = images[right];
+-   return [left && left.replace(/\..*$/g, ''), right && right.replace(/\..*$/g, '')];
+- }
+- var adjancentImages = getAdjancentImages();
+- var left = adjancentImages[0];
+- var right = adjancentImages[1];
+
+h1 #{getTitle()}
+
+section.image
+  img#image(src="../images/#{current.source}.jpg", width="100%")
+
+  div.data
+    div.price(class=(data.sold ? 'sold' : ''))
+      span.amount #{data.price ? '€' + data.price : ''}
+      | #{data.sold ? ' sold' : ''}
+
+
+script.
+  (function() {
+    var left = "#{left}";
+    var right =  "#{right}";
+    Hammer(document.getElementById('image'))
+    .on('swipeleft', function() {
+      if (left.length) window.location = left;
+      return true;
+    })
+    .on('swiperight', function() {
+      if (right.length) window.location = right;
+      return true;
+    });
+  }());
+
+include ../_social.jade

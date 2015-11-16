@@ -1,0 +1,20 @@
+include ./_functions.jade
+- var eCurrentUrl = encodeURIComponent(currentUrl);
+- var mailSubject = encodeURIComponent('A painter from Croatia: ' + getTitle());
+- var mailBody = encodeURIComponent('Check his out paintings: ' + currentUrl);
+section.social
+  a.mail.icon-mail4(
+    alt="Send an e-mail...",
+    href=("mailto:?subject=" + mailSubject + "&body=" + mailBody),
+    target="_blank")
+  a.google.icon-google-plus3(
+    alt="Share on Google Plus",
+    href=("https://plus.google.com/share?url=" + currentUrl),
+    target="_blank")
+  a.facebook.icon-facebook3(
+    alt="Share on Facebook..."
+    href=("https://www.facebook.com/sharer/sharer.php?u=" + eCurrentUrl),
+    target="_blank")
+  a.twitter.icon-twitter3(
+    alt="Share on Twitter...",
+    href=("https://twitter.com/intent/tweet?original_referer=" + currentUrl + "&url=" + currentUrl), target="_blank")
