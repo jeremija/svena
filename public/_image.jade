@@ -31,16 +31,47 @@ section.image
 
 script.
   (function() {
+    function goTo(location) {
+      window.name = window.scrollY;
+      window.location = location;
+    }
+
     var left = "#{left}";
     var right =  "#{right}";
-    Hammer(document.getElementById('image'))
+    var image = document.getElementById('image');
+    Hammer(image)
     .on('swipeleft', function() {
-      if (left.length) window.location = left;
+      if (left.length) goTo(left);
       return true;
     })
     .on('swiperight', function() {
-      if (right.length) window.location = right;
+      if (right.length) goTo(right);
       return true;
+    });
+
+    arrow = {left: 37, up: 38, right: 39, down: 40 };
+
+    if (!document.body.addEventListener) return;
+    image.addEventListener('load', function() {
+      if (!isNaN(window.name)) {
+        window.scrollTo(0, window.name);
+        window.name = '';
+      }
+    });
+
+    document.body.addEventListener('keydown', function(e) {
+      var key = e.keyCode || e.which;
+
+      if (key === arrow.left && left.length) {
+        goTo(left);
+        return true;
+      }
+      else if (key === arrow.right && right.length) {
+        goTo(right);
+        return true;
+      }
+
+      return false;
     });
   }());
 

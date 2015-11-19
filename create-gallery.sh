@@ -17,7 +17,8 @@ function create_templates {
         # jade=$(echo $file | sed 's|^.*/||g' | sed 's|\..*$||g').jade
         jade=$(get_file_wo_ext $file).jade
         echo   creating template for $file as $jade
-        cp './public/_image.jade' "$GALLERY_DIR/$jade"
+        ln -sr ./public/_image.jade "$GALLERY_DIR/$jade"
+        # cp './public/_image.jade' "$GALLERY_DIR/$jade"
         # cat ./public/_image.jade | sed "s|{{image}}|$file|g" > "$GALLERY_DIR/${jade,,}.jade"
     done
 
