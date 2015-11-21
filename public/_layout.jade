@@ -14,7 +14,7 @@ html(prefix="og: http://ogp.me/ns#")
     meta(property="og:type", content="website")
     meta(property="og:url", content=(url + '/' + current.path.join('/')))
     meta(property="og:image", content=(current.path.indexOf('view') < 0 ? url + '/thumbs/bonaca.jpg' : url + '/thumbs/' + current.source + '.jpg'))
-    link(rel="stylesheet" href="/main.css")
+    link(rel="stylesheet" href="/main.css?#{Date.now()}")
     script(type="text/javascript", src="//hammerjs.github.io/dist/hammer.min.js")
     include ./_ga.jade
   body
