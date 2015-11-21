@@ -144,7 +144,9 @@ header {
   column-gap: @gap;
 }
 
-section {
+section.gallery,
+section.contact,
+section.image {
   @media(min-width: 1200px) {
     width: 1100px;
     margin: 0 auto;
@@ -228,7 +230,7 @@ section.image {
   }
 }
 
-section.social {
+.social {
     margin-top: 2em;
     margin-bottom: 2em;
 
@@ -257,7 +259,7 @@ section.contact {
   }
 }
 
-.front section.social {
+.front .social {
   position: fixed;
   bottom: 0;
   left: 0;
@@ -268,5 +270,60 @@ section.contact {
   }
   a:hover {
     color: @color;
+  }
+}
+
+.parallax {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  section {
+    padding: 1em;
+    @media(max-width: @width-mid) {
+      padding: 1em 0;
+    }
+    position: relative;
+    // padding: 25vh 10%;
+    min-height: 100vh;
+    width: 100vw;
+    box-sizing: border-box;
+    transform-style: inherit;
+
+    .social {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+  }
+
+  section {
+    background: 50% 100% / cover;
+  }
+
+  section#title {
+    background-image: url("./assets/bg0.jpg");
+    background-attachment: fixed;
+  }
+
+  section#gallery {
+    background: @color-bg;
+    padding: 2em 0 6em;
+    // transform: translateZ(-1px) scale(2);
+    // z-index:-1;
+  }
+
+  section#contact {
+    background-image: url("./assets/bg.jpg");
+    background-attachment: fixed;
+    .content {
+      font-size: 1.4em;
+    }
   }
 }

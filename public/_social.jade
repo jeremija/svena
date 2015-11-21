@@ -2,7 +2,7 @@ include ./_functions.jade
 - var eCurrentUrl = encodeURIComponent(currentUrl);
 - var mailSubject = encodeURIComponent('A painter from Croatia: ' + getTitle());
 - var mailBody = encodeURIComponent('Check his out paintings: ' + currentUrl);
-section.social
+div.social
   a.mail.icon-mail4(
     alt="Send an e-mail...",
     href=("mailto:?subject=" + mailSubject + "&body=" + mailBody),
