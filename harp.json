@@ -3,21 +3,21 @@
         "url": "http://svanimir.steiner.website",
         "ga": "UA-55255729-1",
         "images": {
-            "bonaca": {},
-            "dujmovic": {"price": "300,00", "sold": true},
-            "marih-beach": {"price": "300,00"},
-            "maslina": {"price": "300,00"},
-            "mulo": {"price": "300,00"},
-            "nevera2": {"price": "300,00"},
-            "nevera": {"price": "300,00"},
-            "obala": {"price": "300,00"},
-            "otok-iza": {"price": "300,00"},
-            "otok": {"price": "300,00"},
-            "seki": {"price": "300,00", "sold": true},
-            "sivadije-prenj": {"price": "300,00", "sold": true},
-            "sv-nikola": {"price": "300,00"},
-            "ulica": {"price": "300,00"},
-            "vala": {"price": "300,00"}
+            "bonaca": {"dim": "40x30 cm"},
+            "dujmovic": {"dim": "80x60 cm", "sold": true},
+            "marih-beach": {"dim": "40x30 cm"},
+            "maslina": {"dim": "40x30 cm"},
+            "mulo": {"dim": "30x24 cm"},
+            "nevera-2": {"dim": "40x30 cm"},
+            "nevera": {"dim": "40x30 cm"},
+            "obala": {"dim": "50x20 cm"},
+            "otok-iza": {"dim": "40x30 cm"},
+            "otok": {"dim": "40x30 cm"},
+            "seki": {"sold": true, "dim": "40x30cm"},
+            "sivadije-prenj": {"sold": true},
+            "sv-nikola": {"dim": "40x30 cm"},
+            "ulica": {"dim": "40x30 cm"},
+            "vala": {"dim": "40x30 cm"}
         }
     }
 }

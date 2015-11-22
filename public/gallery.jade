@@ -15,9 +15,9 @@ section.gallery
         img(src="thumbs/#{image}", style="")
       div.overlay(class=(data.sold ? 'sold' : ''))
         div.data
-          div.name #{getImageName(name)}
-          div.price(class=(data.sold ? 'sold' : ''))
-            span.amount #{data.price ? '€' + data.price : ''}
-            | #{data.sold ? ' sold' : ''}
+          div
+            span.name #{getImageName(name)}
+            span.sold #{data.sold ? ' (sold)' : ''}
+          div.dim #{data.dim}
 
 include ./_social.jade

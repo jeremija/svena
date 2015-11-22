@@ -25,6 +25,7 @@ section.image
 
   div.data
     div.price(class=(data.sold ? 'sold' : ''))
+      span.dim #{data.dim}
       span.amount #{data.price ? '€' + data.price : ''}
       | #{data.sold ? ' sold' : ''}
 
