@@ -1,3 +1,4 @@
 /public/thumbs/
-/public/view/
+/public/gallery/*
+!/public/gallery/_image.jade
 /dist/

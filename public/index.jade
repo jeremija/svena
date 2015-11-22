@@ -22,7 +22,7 @@ section.gallery
       - var data = images[name] || {};
 
       .image
-        a(href="view/#{name}")
+        a(href="gallery/#{name}")
           img(src="thumbs/#{image}", style="")
         .overlay(class=(data.sold ? 'sold' : ''))
           .data
@@ -46,21 +46,29 @@ section.contact
 
 script.
   (function() {
+    function changeHash(hash) {
+      window.location.hash = hash;
+    }
     function scrollTo(element, to, duration) {
-      if (duration <= 0) return;
+      if (duration <= 0) {
+        changeHash('gallery');
+        return;
+      }
       var difference = to - element.scrollTop;
       var perTick = difference / duration * 10;
 
       setTimeout(function() {
         element.scrollTop = element.scrollTop + perTick;
-        if (element.scrollTop === to) return;
+        if (element.scrollTop === to) {
+          changeHash('gallery');
+          return;
+        }
         scrollTo(element, to, duration / 1.05);
       }, 10);
     }
     var a = document.querySelector('#scroll-to-gallery');
     var gallery = document.querySelector('section.gallery');
     a.onclick = function() {
-      window.location.hash = 'gallery';
       scrollTo(document.body, gallery.offsetTop, 200);
       return false;
     }

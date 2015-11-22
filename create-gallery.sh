@@ -1,5 +1,5 @@
 #!/bin/bash
-GALLERY_DIR="./public/view"
+GALLERY_DIR="./public/gallery"
 IMAGES_DIR="../svena-images"
 THUMBS_DIR="./public/thumbs"
 THUMB_SIZE="x400"
@@ -17,7 +17,7 @@ function create_templates {
         # jade=$(echo $file | sed 's|^.*/||g' | sed 's|\..*$||g').jade
         jade=$(get_file_wo_ext $file).jade
         echo   creating template for $file as $jade
-        ln -sr ./public/_image.jade "$GALLERY_DIR/$jade"
+        ln -sr "$GALLERY_DIR/_image.jade" "$GALLERY_DIR/$jade"
         # cp './public/_image.jade' "$GALLERY_DIR/$jade"
         # cat ./public/_image.jade | sed "s|{{image}}|$file|g" > "$GALLERY_DIR/${jade,,}.jade"
     done
