@@ -1,5 +1,4 @@
 @import "./fonts.less";
-// @import "./slider.less";
 
 @color: #444;
 @color-link: #849;
@@ -7,6 +6,10 @@
 @color-social: lighten(@color, 40%);
 
 @width-mid: 720px;
+
+body, html {
+  height: 100%;
+}
 
 body {
   font-family: 'Josefin Slab', 'Times New Roman', serif;
@@ -17,8 +20,6 @@ body {
   margin: 0;
   overflow-x: hidden;
   overflow-y: auto;
-  // min-height: 100vh;
-  // width: 100vw;
 }
 
 h1, h2, h3, h4, h5 {
@@ -32,7 +33,6 @@ h1 {
   font-size: 65px;
   font-weight: 300;
   font-style: italic;
-  // border-bottom: #CCC solid 1px;
   padding: 1.3em 0 1.3em;
   margin: 0;
 
@@ -89,37 +89,6 @@ header.toolbar {
   text-align: left;
   padding: 1em 0;
 }
-
-// header {
-//   ul {
-//     padding: 0;
-//     display: block;
-//   }
-//   li {
-//     padding: 0;
-//     display: inline-block;
-//     margin: 0 0.5em 0 0.5em;
-//     a {
-//       span {
-//         font-size: 3em;
-//         vertical-align: middle;
-//         padding: 16px;
-//       }
-//       &.active,
-//       &.active:visited {
-//         color: white;
-//         span {
-//           border-radius: 50%;
-//           background-color: @color;
-//           .transition(background-color, 200ms);
-//         }
-//       }
-//       &.active:hover span {
-//         background-color: lighten(@color, 10%);
-//       }
-//     }
-//   }
-// }
 
 .columns(@count, @gap) {
   -webkit-column-count: @count;
@@ -285,7 +254,7 @@ a.scroll-down {
 
 section {
   position: relative;
-  min-height: 100vh;
+  min-height: 100%;
   box-sizing: border-box;
   background: 50% 100% / cover;
 }
@@ -297,7 +266,6 @@ section.title {
 
 section.gallery {
   background: @color-bg;
-  // padding: 2em 0 6em;
 }
 
 section.contact {
