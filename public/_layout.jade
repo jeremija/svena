@@ -18,16 +18,5 @@ html(prefix="og: http://ogp.me/ns#")
     script(type="text/javascript", src="//hammerjs.github.io/dist/hammer.min.js")
     include ./_ga.jade
   body
-    header
-      ul
-        li
-          a(href="/", class="#{current.source === 'index' ? 'active' : ''}", alt="Home")
-            span.icon-home
-        li
-          a(href="/gallery", class="#{current.source === 'gallery' || current.path.indexOf('view') >= 0 ? 'active' : ''}", alt="Gallery")
-            span.icon-images
-        li
-          a(href="/contact", class="#{current.source === 'contact' ? 'active' : ''}", alt="Contact")
-            span.icon-phone
 
     != yield

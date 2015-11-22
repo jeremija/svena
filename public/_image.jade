@@ -18,25 +18,27 @@
 - var left = adjancentImages[0];
 - var right = adjancentImages[1];
 
-h1 #{getTitle()}
-
-section.image
+.single-image.responsive
+  header.toolbar
+    a.back-to-gallery(href="/#gallery")
+      span.icon.icon-left-open
+      span Gallery
   img#image(src="../images/#{current.source}.jpg", width="100%")
 
-  div.data
-    div.price(class=(data.sold ? 'sold' : ''))
+  .data(style="text-align: center;")
+    .nav
+      a.left.icon-left-open(href="#{left}", title="Previous")
+      a.right.icon-right-open(href="#{right}", title="Next")
+    h1
+      span #{getTitle()}
+    .data
       span.dim #{data.dim}
-      span.amount #{data.price ? '€' + data.price : ''}
-      | #{data.sold ? ' sold' : ''}
-
+      span.sold #{data.sold ? ' (sold)' : ''}
+  .bottom
+    include ../_social.jade
 
 script.
   (function() {
-    window.onscroll = function() {
-      window.onscroll = undefined;
-      window.name = ''
-    };
-
     function goTo(location) {
       window.name = window.scrollY;
       window.location = location;
@@ -46,11 +48,11 @@ script.
     var right =  "#{right}";
     var image = document.getElementById('image');
     Hammer(image)
-    .on('swipeleft', function() {
+    .on('swiperight', function() {
       if (left.length) goTo(left);
       return true;
     })
-    .on('swiperight', function() {
+    .on('swipeleft', function() {
       if (right.length) goTo(right);
       return true;
     });
@@ -58,12 +60,6 @@ script.
     arrow = {left: 37, up: 38, right: 39, down: 40 };
 
     if (!document.body.addEventListener) return;
-    image.addEventListener('load', function() {
-      if (!isNaN(window.name)) {
-        window.scrollTo(0, window.name);
-        window.name = '';
-      }
-    });
 
     document.body.addEventListener('keydown', function(e) {
       var key = e.keyCode || e.which;
@@ -80,5 +76,3 @@ script.
       return false;
     });
   }());
-
-include ../_social.jade

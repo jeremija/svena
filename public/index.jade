@@ -1,7 +1,67 @@
-div.background
+- function getImageName(name) {
+-     if (!name) return '';
+-     return name.replace('-', ' ');
+- }
 
-h1 Paintings
-  div.subtitle by Svanimir Steiner
+section.title
+  h1 Paintings
+    div.subtitle by Svanimir Steiner
 
-div.front
-  include ./_social.jade
+  // div.front
+  //   include ./_social.jade
+  div.inverted-links.bottom
+    a#scroll-to-gallery.scroll-down(href="#gallery" title="View Gallery")
+      span.icon-down-open-big
+
+section.gallery
+  a(name="gallery")
+  h1 Gallery
+  .gallery-columns.responsive
+    for image in public.thumbs._contents
+      - var name = image.replace(/\..*$/g, '');
+      - var data = images[name] || {};
+
+      .image
+        a(href="view/#{name}")
+          img(src="thumbs/#{image}", style="")
+        .overlay(class=(data.sold ? 'sold' : ''))
+          .data
+            div
+              span.name #{getImageName(name)}
+              span.sold #{data.sold ? ' sold' : ''}
+            .dim #{data.dim}
+
+section.contact
+  a(name="contact")
+  h1 Contact
+
+  .content
+    h3 Svanimir Steiner
+    address Zagreb, Croatia
+
+    a.send(href="http://www.google.com/recaptcha/mailhide/d?k=01Cm6vmr6ngWI_CA8AbZu0wg==&amp;c=g8us3OKJdh-VxtdVJB3_UESvMQeCKY9Ucdc3yg4OCp8=", onclick="window.open('http://www.google.com/recaptcha/mailhide/d?k\07501Cm6vmr6ngWI_CA8AbZu0wg\75\75\46c\75g8us3OKJdh-VxtdVJB3_UESvMQeCKY9Ucdc3yg4OCp8\075', '', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300'); return false;", title="Reveal this e-mail address") Send an Email
+
+  div.inverted-links.bottom
+    include ./_social.jade
+
+script.
+  (function() {
+    function scrollTo(element, to, duration) {
+      if (duration <= 0) return;
+      var difference = to - element.scrollTop;
+      var perTick = difference / duration * 10;
+
+      setTimeout(function() {
+        element.scrollTop = element.scrollTop + perTick;
+        if (element.scrollTop === to) return;
+        scrollTo(element, to, duration / 1.05);
+      }, 10);
+    }
+    var a = document.querySelector('#scroll-to-gallery');
+    var gallery = document.querySelector('section.gallery');
+    a.onclick = function() {
+      window.location.hash = 'gallery';
+      scrollTo(document.body, gallery.offsetTop, 200);
+      return false;
+    }
+  }());
