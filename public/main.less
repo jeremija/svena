@@ -7,6 +7,10 @@
 
 @width-mid: 720px;
 
+html, body {
+  height: 100%;
+}
+
 body {
   font-family: 'Josefin Slab', 'Times New Roman', serif;
   text-align: center;
@@ -172,7 +176,9 @@ header.toolbar {
 
 .single-image {
   position: relative;
-  padding-bottom: 5em;
+  box-sizing: border-box;
+  min-height: 100%;
+  padding-bottom: 4em;
   .nav {
     line-height: 2em;
     .left {
