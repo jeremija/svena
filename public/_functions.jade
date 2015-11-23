@@ -3,4 +3,8 @@
 -         return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
 -     });
 - }
+- function endsWith(str, suffix) {
+-     return str.indexOf(suffix, str.length - suffix.length) !== -1;
+- }
 - var currentUrl = url + '/' + current.path.join('/');
+- currentUrl = currentUrl.replace(/\/index$/, '/');
