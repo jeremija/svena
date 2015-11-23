@@ -47,18 +47,21 @@
 
 script.
   (function() {
+    var reps = 0;
+    var timeout;
     function changeHash(hash) {
       window.location.hash = hash;
     }
     function scrollTo(element, to, duration) {
-      if (duration <= 0) {
+      reps++;
+      if (duration <= 0 || reps > 1000) {
         changeHash('gallery');
         return;
       }
       var difference = to - element.scrollTop;
       var perTick = difference / duration * 10;
 
-      setTimeout(function() {
+      timeout = setTimeout(function() {
         element.scrollTop = element.scrollTop + perTick;
         if (element.scrollTop === to) {
           changeHash('gallery');
@@ -70,7 +73,9 @@ script.
     var a = document.querySelector('#scroll-to-gallery');
     var gallery = document.querySelector('section.gallery');
     a.onclick = function() {
-      scrollTo(document.body, gallery.offsetTop, 200);
+      clearTimeout(timeout);
+      reps = 0;
+      scrollTo(document.querySelector('.fixed'), gallery.offsetTop, 200);
       return false;
     }
   }());
