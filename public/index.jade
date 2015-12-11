@@ -3,7 +3,6 @@
 -     return name.replace('-', ' ');
 - }
 
-.fixed
   section.title
     h1 Paintings
       div.subtitle by Svanimir Steiner
@@ -75,7 +74,7 @@ script.
     a.onclick = function() {
       clearTimeout(timeout);
       reps = 0;
-      scrollTo(document.querySelector('.fixed'), gallery.offsetTop, 200);
+      scrollTo(document.body, gallery.offsetTop, 200);
       return false;
     }
   }());
