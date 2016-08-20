@@ -15,12 +15,16 @@ function create_templates {
     echo creating templates...
     mkdir -p "$GALLERY_DIR"
 
+    CURRENT_DIR=$PWD
     for file in "$RAW_IMAGES_DIR"/*; do
         file="../$(echo $file | sed 's|./public/||g')"
         # jade=$(echo $file | sed 's|^.*/||g' | sed 's|\..*$||g').jade
         jade=$(get_file_wo_ext $file).jade
         echo   creating template for $file as $jade
-        ln -sr "$GALLERY_DIR/_image.jade" "$GALLERY_DIR/$jade"
+        cd $GALLERY_DIR
+        ln -s _image.jade $jade
+        cd $CURRENT_DIR
+
     done
 
     echo templates done
