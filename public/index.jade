@@ -1,6 +1,6 @@
 - function getImageName(name) {
 -     if (!name) return '';
--     return name.replace('-', ' ');
+-     return name.replace(/^[0-9]+_/, '').replace('-', ' ');
 - }
 
   section.title

@@ -1,7 +1,7 @@
 - function getTitle() {
--     return current.source.replace('-', ' ').replace(/\w\S*/g, function(txt) {
+-     return current.source.replace(/^[0-9]+_/, '').replace('-', ' ').replace(/\w\S*/g, function(txt) {
 -         return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
--     });
+-     })
 - }
 - function endsWith(str, suffix) {
 -     return str.indexOf(suffix, str.length - suffix.length) !== -1;

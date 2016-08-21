@@ -1,6 +1,6 @@
 - function getTitle() {
 -     var source =  current.source === 'index' ? 'home' : current.source;
--     return source.replace('-', ' ').replace(/\w\S*/g, function(txt) {
+-     return source.replace(/^[0-9]+_/, '').replace('-', ' ').replace(/\w\S*/g, function(txt) {
 -         return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
 -     }) + ' - Paintings by Svanimir Steiner';
 - }
