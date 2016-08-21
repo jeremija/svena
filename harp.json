@@ -17,7 +17,13 @@
             "12_mulo": {"dim": "30x24 cm"},
             "13_nevera": {"dim": "40x30 cm"},
             "14_bonaca": {"dim": "40x30 cm"},
-            "15_nevera-2": {"dim": "40x30 cm"}
+            "15_nevera-2": {"dim": "40x30 cm"},
+            "16_bonaca-2": {"dim": "80x40 cm"},
+            "17_na-kupanju": {"dim": "40x30 cm"},
+            "18_skrape": {"dim": "40x30 cm"},
+            "19_jutro": {"dim": "40x30 cm"},
+            "20_skrape-2": {"dim": "50x40 cm"},
+            "21_na-viru": {"dim": "50x40 cm"}
         }
     }
 }
