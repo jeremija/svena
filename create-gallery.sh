@@ -37,7 +37,7 @@ function resize_images {
         echo "  resizing image $file"
         image=$(get_file_wo_ext $file).jpg
 
-        convert "$file" -resize "$IMAGE_SIZE" -gaussian-blur 0x0.5 - | \
+        convert "$file" -gaussian-blur 0x0.5 -resize "$IMAGE_SIZE" - | \
             composite -watermark 20% -gravity southeast "$WATERMARK" - "$IMAGES_DIR/$image"
         # composite -watermark 20% -gravity southeast "$WATERMARK" "$file" - | \
         #     convert - -resize "$IMAGE_SIZE" -gaussian-blur 0x0.5 "$IMAGES_DIR/$image"
