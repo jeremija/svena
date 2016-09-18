@@ -12,7 +12,7 @@
             "07_otok-iza": {"dim": "40x30 cm"},
             "08_sivadije-prenj": {"sold": true},
             "09_dujmovic": {"dim": "80x60 cm", "sold": true},
-            "10_vala": {"dim": "40x30 cm"},
+            "10_vala": {"dim": "40x30 cm", "sold": true},
             "11_obala": {"dim": "50x20 cm"},
             "12_mulo": {"dim": "30x24 cm"},
             "13_nevera": {"dim": "40x30 cm"},
