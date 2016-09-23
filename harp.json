@@ -24,7 +24,8 @@
             "19_jutro": {"dim": "40x30 cm"},
             "20_skrape-2": {"dim": "50x40 cm"},
             "21_na-viru": {"dim": "50x40 cm"},
-            "22_falkusa": {"dim": "50x40 cm"}
+            "22_falkusa": {"dim": "50x40 cm"},
+            "24_val": {"dim": "40x30cm"}
         }
     }
 }
