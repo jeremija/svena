@@ -46,6 +46,10 @@
 
 script.
   (function() {
+    var mobile = /Mobile/.test(navigator.userAgent) && !window.MSStream;
+    if (mobile) document.body.className += ' mobile';
+  }());
+  (function() {
     var reps = 0;
     var timeout;
     function changeHash(hash) {
